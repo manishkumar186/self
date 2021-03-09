@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block myblock %}
+<div class="container-fluid">
+    <div class="row">
+        {% if data|length == 0 %}
+        <p class="alert alert-success text-center" >Not found</p>
+        {% else %}
+        {% for i in data %}
+        <div class="col-md-2 m-1 p-0 bg-info" style="border: 1px solid red">
+            <a href="{% url 'single_product' %}?pid={{i.id}}"><img src="/media/{{i.product_image}}" alt="" height="150px" width="100%"></a>
+            <h5>{{i.product_name}}</h5>
+            <p style="margin-bottom: 0px;">&#8377;<del>{{i.product_price}}</del> &#8377;{{i.sale_price}}</p>
+            <p style="margin-top: 0px;">{{i.product_category}}</p>
+            <form action="{% url 'cart_view' %}" method="POST">
+                {% csrf_token %}
+                <div class="d-grid gap-2">
+                    <input type="hidden" value="{{i.id}}" name="pid">
+                    <input type="hidden" value="1" name="qty">
+                    <button class="btn btn-success" type="submit">Add To Cart</button>
+                  </div>
+            </form>
+            
+        </div>
+        
+        {% endfor %}
+        {% endif %}
+        
+    </div>
+    
+</div>
+
+{% endblock %}

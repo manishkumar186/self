@@ -1,0 +1,81 @@
+{% extends 'cust_dashboard.html '%}
+{% load static %}
+{% block dashboard %}
+<div class="row">
+    <div class="col-md-6 mx-auto my-2">
+        <div class="card">
+            <div class="card-body">
+                <img src="/media/{{data.product_image}}" alt="" height="150px" width="100%">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="file" class="form-control" name="pimage">
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-md-6">
+                            <label for="">Product Name</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="pname" value="{{data.product_name}}">
+                        </div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-md-6">
+                            <label for="">Product Category</label>
+                        </div>
+                        <div class="col-md-6">
+                            <select name="pcat" id="" class="form-select">
+                                {% for i in cat %}
+                                {% if i.cat_name == data.product_category.cat_name %}
+                                <option value="{{i.cat_name}}" selected>{{i.cat_name}}</option>
+                                {% else %}
+                                <option value="{{i.cat_name}}">{{i.cat_name}}</option>
+                                {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-md-6">
+                            <label for="">Product Price</label>
+
+                        </div>
+                        <div class="col-md-6">
+                            <input type="number" class="form-control" name="pprice" value="{{data.product_price}}">
+                        </div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-md-6">
+                            <label for="">Sale Price</label>
+
+                        </div>
+                        <div class="col-md-6">
+                            <input type="number" class="form-control" name="sprice" value="{{data.sale_price}}">
+                        </div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-md-6">
+                            <label for="">Product Description</label>
+
+                        </div>
+                        <div class="col-md-6">
+                            <textarea name="desc" id="" cols="28" rows="5" style="resize: none;" class="form-control">{{data.details}}</textarea>
+                        </div>
+                    </div>
+                    <input type="submit" class="btn btn-success" value="update">
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% if status %}
+<script>
+alert("{{status}}")
+</script>
+<script>
+    window.location="edit_product?pid={{refresh}}"
+</script>
+{% endif %}
+
+{% endblock %}

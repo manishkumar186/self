@@ -1,0 +1,41 @@
+{% extends 'cust_dashboard.html' %}
+{% block dashboard %}
+<div class="row">
+    <div class="col-md-12 my-2">
+        {% for i in order_history %}
+        <div class="card my-2">
+            <div class="card-header">
+                <strong class="float-left">Order ID: {{i.order_id}}</strong>
+                <em class="float-right">Processed On: {{i.date}}</em>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-hover">
+                    {% for j in i.product %}
+                    <tr>
+                        <td><img src="/media/{{j.product_image}}" alt="" width="100px" height="100ox"></td>
+                        <td>{{j.product_name}}</td>
+                        <td>&#8377; {{j.sale_price}}</td>
+                        <td><a href="{% url 'single_product' %}?pid={{j.id}}" target="_blank" class="btn btn-success">View</a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="card-footer">
+                <table class="table">
+                    <tr>
+                        <th>INVOICE ID:</th>
+                        <td>{{i.invoice}}</td>
+                        <th>STATUS</th>
+                        {% if i.status %}
+                        <td><button class="btn btn-success">Success</button></td>
+                        {% else %}
+                        <td><button class="btn btn-danger">Cancel</button></td>
+                        {% endif %}
+                    </tr>
+                </table>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

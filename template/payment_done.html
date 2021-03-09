@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block myblock %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto p-3 my-5 text-center" style="box-shadow: 0px 0px 10px gray;" >
+            <img src="{% static 'Images/success.gif' %}" alt="" height="100px" width="100px">
+            <br>
+            <h5 class="alert alert-success">PAYMENT SUCCESSFULL</h5>
+            <div class="my-3">
+                <a href="{% url 'cart_view' %}" class="btn btn-success">Continue Shopping</a>
+                <a href="{% url 'cust_dashboard' %}" class="btn  btn-success">Go To Dashboard </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

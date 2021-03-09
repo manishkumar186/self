@@ -1,0 +1,99 @@
+{% extends 'cust_dashboard.html' %}
+{% load static %}
+{% block head %}
+<style>
+.manish:hover {
+        background-color: #0d6efd;
+        color: white;
+    }
+</style>
+{% endblock %}
+{% block dashboard %}
+<div class="row">
+    <div class="col-md-6 bg-light p-3 my-2 mx-auto shadow-lg">
+        
+        <div class="text-center">
+            {% if register_data.profile_pic %}
+            <button id="pic" onclick="myfun()" style="height: 50px; border-radius: 50%; overflow: hidden; border: none; outline: none;"><img src="/media/{{register_data.profile_pic}}" alt="" height="50" style="border-radius: 50%;"></button>
+            {% else %}
+            <button id="pic" onclick="myfun()" style="height: 50px; border-radius: 50%; overflow: hidden; border: none; outline: none;"><img src="{% static 'Images/user.jpg' %}" alt="" height="50" style="border-radius: 50%;"></button>
+            {% endif %}
+            
+        </div>
+
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <input type="file" name="image" id="hide_choose_file" hidden>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">First Name</label>
+                        <input type="text" placeholder="Enter First Name" required class="form-control" name="fname" value="{{user_data.first_name}}">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Last Name</label>
+                        <input type="text" placeholder="Enter Last Name" required class="form-control" name="lname" value="{{user_data.last_name}}">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-2">
+                    <div class="form-group">
+                        <label for="">Email</label>
+                        <input type="email" placeholder="Enter Email" required class="form-control" name="email" value="{{user_data.email}}">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <div class="form-group">
+                        <label for="">Contact</label>
+                        <input type="tel" placeholder="Enter Contact " required class="form-control" name="contact" value="{{register_data.contact_number}}">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Username</label>
+                    <input type="text" class="form-control" name="uname" value="{{user_data.username}}" readonly>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-4">
+                    <div class="form-group">
+                        <label for="">Gender</label>
+                        <select name="gender" id="">
+                            <option value="Male">Male</option>
+                            {% if register_data.gender == "Female" %}
+                            <option value="Female" selected>Female</option>
+                            {% else %}
+                            <option value="Female">Female</option>
+                            {% endif %}
+
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mb-2">
+                <label for="">Address</label>
+                <textarea name="textarea" cols="5" rows="3" class="form-control" style="resize: none;">{{register_data.address}}</textarea>
+            </div>
+            <div class="form-group mb-2">
+                <input type="submit" value="Update" class="btn btn-success">
+            </div>
+            {% if status %}
+            <p class="text-success text-center m-0 p-0"><em>{{status}}</em></p>
+            {% endif %}
+        </form>
+    </div>
+</div>
+<script>
+    function myfun(){
+        $("#hide_choose_file").click()
+    }
+</script>
+{% endblock %}

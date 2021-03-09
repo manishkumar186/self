@@ -1,0 +1,47 @@
+{% extends 'cust_dashboard.html' %}
+{% load static %}
+{% block dashboard %}
+<div class="row">
+    <div class="col-md-6 mx-auto bg-light my-2">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="">Product Name</label>
+                <input type="text" placeholder="Enter Product Name" name="pname" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">Product Category</label>
+                <select name="pcategory" id="" class="form-select">
+                    {% for i in data %}
+                    <option value="{{i}}">{{i}}</option>
+                    {% endfor %}
+                    
+                </select>
+                
+            </div>
+            <div class="form-group">
+                <label for="">Product Price</label>
+                <input type="tel" placeholder="Product Price" name="pprice" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">Sale Price</label>
+                <input type="tel" placeholder="Sale Price" name="sprice" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">Product Image</label>
+                <input type="file" name="pimage" class="form-control">
+            </div>
+            <div class="form-group mb-2">
+                <label for="">Product Description</label>
+                <textarea name="desc" id="" cols="5" rows="3" class="form-control" style="resize: none;"></textarea>
+            </div>
+            <input type="submit" value="Add Product" class="btn btn-success mb-2">
+        </form>
+    </div>
+</div>
+{% if status %}
+<script>
+    alert("{{status}}")
+</script>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+<style>
+    .m1 {
+        font-family: "Sofia", sans-serif;
+        font-size: 40px;
+        text-shadow: 3px 3px 1px whitesmoke;
+        color: black;
+    }
+
+    .m2 {
+        font-family: "Sofia", sans-serif;
+        font-size: 20px;
+        text-shadow: 3px 3px 1px whitesmoke;
+        color: black;
+    }
+
+    .image {
+        position: relative;
+    }
+
+    .text {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        color: white;
+        text-transform: uppercase;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 2rem;
+        transform: translate(-50%, -50%);
+    }
+    .image:hover{
+        padding: 5px;
+        box-shadow: 0px 0px 5px whitesmoke;
+        overflow: hidden;
+    }
+</style>
+{% endblock %}
+{% block myblock %}
+
+<!-- Carousel Start -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 p-0">
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"></li>
+                    <li data-bs-target="#carouselExampleDark" data-bs-slide-to="1"></li>
+                    <li data-bs-target="#carouselExampleDark" data-bs-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <img src="{% static 'Images/cone.jpg' %}" class="d-block w-100" alt="..." height="500px">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="m1">First slide label</h5>
+                            <p class="m1">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="{% static 'Images/ctwo.jpg' %}" class="d-block w-100" alt="..." height="500px">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="m1">Second slide label</h5>
+                            <p class="m1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'Images/cthree.jpg' %}" class="d-block w-100" alt="..." height="500px">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="m1">Third slide label</h5>
+                            <p class="m1">Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Carousel End -->
+
+<!-- Start Second Slide -->
+<div class="container-fluid alert alert-secondary">
+    <div class="row">
+        <div class="col-md-1">
+            <img src="{% static 'Images/1.png' %}" alt="" width="100px">
+        </div>
+        <div class="col-md-6" style="text-align: justify;">
+            <h5>ZOMATO</h5>
+            <p>Zomato is an Indian restaurant aggregator and food delivery start-up founded by Deepinder Goyal and
+                Pankaj Chaddah in 2008. Zomato provides information, menus and user-reviews of restaurants as well as
+                food delivery options from partner restaurants in select cities.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{% static 'Images/lm.svg' %}" alt="">
+                    <small>Fresh Ingredient</small>
+                </div>
+                <div class="col-md-6">
+                    <img src="{% static 'Images/tray.svg' %}" alt="">
+                    <small>Expert Cooker</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <img src="{% static 'Images/img1.png' %}" alt="">
+        </div>
+        <div class="col-md-2">
+            <img src="{% static 'Images/img2.png' %}" alt="">
+        </div>
+        <div class="col-md-1 p-0">
+            <img src="{% static 'Images/3.png' %}" alt="" width="100px">
+        </div>
+    </div>
+</div>
+<!-- Second Slide End -->
+
+<!-- Start Third Slide -->
+<div class="container-fluid">
+    <div class="row">
+        {% for i in all_data %}
+        <div class="col-md-4 bg-danger">
+            <div class="image">
+                <a href="{% url 'all_product' %}?pid={{i.id}}">
+                    <img src="/media/{{i.cover_pic}}" alt="" height="200px" width="100%" style="border-radius: 4px;">
+                    <h2 class="text bg-secondary w-100 text-center" ><em>{{i.cat_name}}</em></h2>
+                </a>
+                
+            </div>
+            <p style="text-align: justify;color: white;"><small>{{i.desc}}</small></p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<!-- End Third Slide -->
+
+<!-- Start Fourth Slide -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 p-0">
+            <h5 class="m2 text-center">Our Customer Say</h5>
+        </div>
+    </div>
+    <div class="row alert alert-danger">
+        <div class="col-md-4 text-center">
+            <p class="border rounded-pill p-5 border border-warning m-0">“Wow..What can I say for this restaurant. Awsum
+                in ambience,a nice theme like a jungle .. Food ma mamia.</p>
+            <img src="{% static 'Images/akshay.jpg'%}" alt="" class="w-25" style="border-radius: 50%;">
+        </div>
+        <div class="col-md-4 text-center">
+            <p class="border rounded-pill p-5 border border-warning m-0">“Wow..What can I say for this restaurant. Awsum
+                in ambience,a nice theme like a jungle .. Food ma mamia.</p>
+            <img src="{% static 'Images/amitabh.jpg'%}" alt="" class="w-25" style="border-radius: 50%;">
+        </div>
+        <div class="col-md-4 text-center">
+            <p class="border rounded-pill p-5 border border-warning m-0">“Wow..What can I say for this restaurant. Awsum
+                in ambience,a nice theme like a jungle .. Food ma mamia.</p>
+            <img src="{% static 'Images/shahrukh.jpg'%}" alt="" class="w-25" style="border-radius: 50%;">
+        </div>
+
+    </div>
+</div>
+<!-- End Fourth Slide -->
+
+<!-- Start Fifth Slide -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h5 class="m2 text-center">Photo Gallery</h5>
+        </div>
+        <div class="col-md-4 my-md-1">
+            <img src="{% static 'Images/g1.png'%}" alt="" width="100%" height="300px">
+        </div>
+        <div class="col-md-4 my-md-1">
+            <img src="{% static 'Images/g2.png'%}" alt="" width="100%" height="300px">
+        </div>
+        <div class="col-md-4 my-md-1">
+            <img src="{% static 'Images/g3.png'%}" alt="" width="100%" height="300px">
+        </div>
+        <div class="col-md-4 my-md-1">
+            <img src="{% static 'Images/g4.png'%}" alt="" width="100%" height="300px">
+        </div>
+        <div class="col-md-4 my-md-1">
+            <img src="{% static 'Images/g5.png'%}" alt="" width="100%" height="300px">
+        </div>
+        <div class="col-md-4 my-md-1">
+            <img src="{% static 'Images/g6.webp'%}" alt="" width="100%" height="300px">
+        </div>
+        <div class="col-md-4 my-md-1">
+            <img src="{% static 'Images/lunch3.jpg'%}" alt="" width="100%" height="300px">
+        </div>
+        <div class="col-md-4 my-md-1">
+            <img src="{% static 'Images/lunch4.jpg'%}" alt="" width="100%" height="300px">
+        </div>
+        <div class="col-md-4 my-md-1">
+            <img src="{% static 'Images/dinner2.jpg'%}" alt="" width="100%" height="300px">
+        </div>
+    </div>
+</div>
+<!-- End Fifth Slide -->
+{% if status %}
+<script>
+alert("{{status}}")
+</script>
+{% endif %}
+{% endblock %}

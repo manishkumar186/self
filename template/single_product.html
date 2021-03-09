@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block myblock %}
+<div class="container-fluid">
+    <div class="row my-1">
+        <div class="col-md-4">
+            <img src="/media/{{obj.product_image}}" alt="" height="300px" width="100%">
+            <table class="table table-striped table-bordered">
+                <tbody>
+                    <tr>
+                        <th>Product ID</th>
+                        <td>{{obj.id}}</td>
+                    </tr>
+                    <tr>
+                        <th>Product Name</th>
+                        <td>{{obj.product_name}}</td>
+                    </tr>
+                    <tr>
+                        <th>Market Price</th>
+                        <td>&#8377;<del>{{obj.product_price}}</del></td>
+                    </tr>
+                    <tr>
+                        <th>Sale Price</th>
+                        <td>
+                            &#8377;{{obj.sale_price}}
+                            <script>
+                                let sale = "{{obj.sale_price}}"
+                                let market = "{{obj.product_price}}"
+                                let discount = (sale*100)/market;
+                                document.write(`(${discount}%)`)
+    
+                            </script>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th>Product Description</th>
+                        <td>{{obj.details}}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+        <div class="col-md-4">
+            <div class="card" >
+                <div class="card-header">
+                    <h5>Seller Details</h5>
+                </div>
+                
+                
+                <div class="card-body p-0">
+                    <table class="table table-bordered table-striped">
+                        <tbody>
+                            <tr>
+                                <th>Seller Name</th>
+                                <td>{{obj.seller_name.first_name}} {{obj.seller_name.last_name}}</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>{{obj.seller_name.email}}</td>
+                            </tr>
+                            <tr>
+                                <th>Member Since</th>
+                                <td>{{obj.seller_name.date_joined}}</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+
+                </div>
+                
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" >
+                <div class="card-header">
+                    <h5>Category Details</h5>
+                </div>
+                <img src="/media/{{obj.product_category.cover_pic}}" class="card-img-top" alt="..." width="100%" height="200px">
+                <div class="card-body p-0">
+                    <table class="table table-bordered table-striped">
+                        <tbody>
+                            <tr>
+                                <th>Category ID</th>
+                                <td>{{obj.product_category.id}}</td>
+                            </tr>
+                            <tr>
+                                <th>Category Name</th>
+                                <td>{{obj.product_category.cat_name}}</td>
+                            </tr>
+                            <tr>
+                                <th>Category Description</th>
+                                <td>{{obj.product_category.desc}}</td>
+                            </tr>
+                            
+                            
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

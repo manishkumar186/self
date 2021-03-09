@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+<style>
+    .m1 {
+        font-family: "Sofia", sans-serif;
+        font-size: 40px;
+        text-shadow: 3px 3px 3px whitesmoke;
+        color: black;
+    }
+    
+</style>
+{% endblock %}
+
+{% block myblock %}
+
+<!-- Carousel Start -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 p-0">
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"></li>
+                    <li data-bs-target="#carouselExampleDark" data-bs-slide-to="1"></li>
+                    <li data-bs-target="#carouselExampleDark" data-bs-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <img src="{% static 'Images/cone.jpg' %}" class="d-block w-100" alt="..." height="500px">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="m1">First slide label</h5>
+                            <p class="m1">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="{% static 'Images/ctwo.jpg' %}" class="d-block w-100" alt="..." height="500px">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="m1">Second slide label</h5>
+                            <p class="m1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'Images/cthree.jpg' %}" class="d-block w-100" alt="..." height="500px">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="m1">Third slide label</h5>
+                            <p class="m1">Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Carousel End -->
+
+<!-- Start About -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 p-0">
+            <h6 class="bg-dark text-light text-center" ><marquee behavior="alternate" direction="left">Self Pickup option now available on Zayka. A few days ago, we hit 21 million monthly orders, and our food delivery services are currently present in 41 cities.</marquee> </h3>
+        </div>
+        <div class="col-md-3 my-2">
+            <div class="card">
+                <div class="card-header">
+                    <p>How does zyka food delivery work?</p>
+                </div>
+                <div class="card-body" style="text-align: justify;">
+                    <p>To begin with, through its food delivery business, Zayka charges a commission to the restaurants on the basis of orders. While users pay a delivery fee, Zayka earns through restaurants who pay a commission for each delivery, which is then split among the delivery partner and the company.</p>
+                </div>
+                <div class="card-footer">
+                    <small><em>From Zyka & Team</em></small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 my-2">
+            <div class="card">
+                <div class="card-header">
+                    <p>How do you order food on zayka?</p>
+                </div>
+                <div class="card-body" style="text-align: justify;">
+                    Search for the Restaurant you want your food from Now that the restaurant's page is open, go to “Order Delivery” from the right side.
+                </div>
+                <div class="card-footer">
+                    <small><em>From Zyka & Team</em></small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 my-2">
+            <div class="card">
+                <div class="card-header">
+                    <p>What is the best food to order online?</p>
+                </div>
+                <div class="card-body text-justify">
+                    <p>5 of the best foods to get delivered.</p>
+                        <ul type="disc">
+                            <li>Grilled meats and vegetables reheat well. ...</li>
+                            <li>Fried chicken, surprisingly, is a great choice. ...</li>
+                            <li>Deli sandwiches are made to last. ...</li>
+                            <li>Barbecue travels well. ...</li>
+                            <li>Poké bowls are a popular choice for a reason.</li>    
+                        </ul>
+                        
+                </div>
+                <div class="card-footer">
+                    <small><em>From Zyka & Team</em></small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 my-2">
+            <div class="card">
+                <div class="card-header">
+                    <p>How do I join zayka as a delivery boy?</p>
+                </div>
+                <div class="card-body text-justify">
+                    <ul>
+                        <li>Bike.</li>
+                        <li>Driving License & RC Book.</li>
+                        <li>PAN Card & Account details for Salary.</li>
+                        <li>Adhar card for Proof.</li>
+                        <li>Smartphone where order can be received by installing Zomato app.</li>
+                        <li>You have to deposit 1000 rupees for Bag and 2 T-shirts.</li>
+                        <li>High School Mark Sheet.</li>  
+                    </ul>
+                    
+                </div>
+                <div class="card-footer">
+                    <small><em>From Zyka & Team</em></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End About -->
+
+{% endblock %}

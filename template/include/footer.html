@@ -1,0 +1,36 @@
+<!-- Footer Start -->
+{% load static %}
+<div class="container-fluid bg-dark">
+    <div class="row" >
+        <div class="col-md-4 text-center p-3">
+            <img src="{% static 'Images/dinner.png' %}" alt="" style="border-radius: 50%; " width="50px"
+                height="50px">
+            <span style="color: white; font-size: 20px;">Resta</span>
+            <p style="color: white;"><small>F.G.C Road Preet Avenue<br>
+                    Amritsar-143001<br>
+                    9915802873<br>
+                    maniskmr555@gmail.com</small></p>
+
+        </div>
+        <div class="col-md-4 p-3" style="text-align: center;">
+            <p style="color: white;">Useful Links</p>
+            <p><a href="{% url 'home'%}" style="color: white; text-decoration: none; font-size: 15px;">Home /</a>
+               <a href="" style="color: white; text-decoration: none;font-size: 15px;">Menu</a></p>
+               <p> <a href="{% url 'about'%}" style="color: white;text-decoration: none;font-size: 15px;">About /</a>
+               <a href="{% url 'contact'%}" style="color: white;text-decoration: none;font-size: 15px;">Contact</a></p> 
+        </div>
+        
+        
+        <div class="col-md-4 p-3" style="color: white;">
+            <p>We help 24*7</p>
+            <p><em>Contact: <ins>7973474237</ins></em></p>
+            <p><em>Email: <ins>maniskmr555@gmail.com</ins></em></p>
+
+        </div>
+        <div class="col-md-12 text-center">
+            <small style="color: white;">Copyright ©2021 All rights reserved | This website made by manish kumar</small>
+
+        </div>
+    </div>
+</div>
+<!-- Footer End -->

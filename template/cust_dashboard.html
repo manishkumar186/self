@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<style>
+    .manish:hover {
+        background-color: #0d6efd;
+        color: white;
+    }
+</style>
+{% endblock %}
+
+{% block myblock %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 p-0">
+            <div class="list-group">
+                <div class="text-center bg-white p-2">
+                    {% if register_data.profile_pic %}
+                    <img src="/media/{{register_data.profile_pic}}" alt="" height="100" style="border-radius: 50%;">
+                    {% else %}
+                    <img src="{% static 'Images/user.jpg' %}" alt="" height="100" style="border-radius: 50%;">
+                    {% endif %}
+                    <p style="margin-bottom:0px;">{{register_data.user.first_name}} {{register_data.user.last_name}}</p>
+                </div>
+                <a href="{% url 'cust_view' %}" class="list-group-item list-group-item-action manish">View Profile</a>
+                <a href="{% url 'edit_profile' %}" class="list-group-item list-group-item-action manish">Edit Profile</a>
+                <a href="{% url 'change_password' %}" class="list-group-item list-group-item-action manish">Change Password</a>
+                {% if not user.is_staff %}
+                <a href="{% url 'cart_view' %}" class="list-group-item list-group-item-action manish">My Cart</a>
+                <a href="{% url 'order_history' %}" class="list-group-item list-group-item-action manish">Order History</a>
+                {% endif %}
+                {% if user.is_staff %}
+                <a href="{% url 'add_product_view' %}" class="list-group-item list-group-item-action manish">Add Product</a>
+                <a href="{% url 'my_product' %}" class="list-group-item list-group-item-action manish">My Product</a>
+                <a href="{% url 'my_customer' %}" class="list-group-item list-group-item-action manish">My Customer</a>
+                {% endif %}
+                <a href="{% url 'logout' %}" class="list-group-item list-group-item-action manish">Logout</a>
+
+                
+            </div>
+        </div>
+        <div class="col-md-10">
+            {% block dashboard %}
+
+            {% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %}

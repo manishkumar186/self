@@ -1,0 +1,62 @@
+<!-- NavBar Start -->
+
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light p-1">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'all_product' %}">All Product</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Category
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        {% for i in datas %}
+                        <li><a class="dropdown-item" href="{% url 'all_product' %}?pid={{i.id}}">{{i.cat_name}}</a></li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            </ul>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <form class="d-flex" action="{% url 'all_product' %}">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="qry">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </ul>
+            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'cust_dashboard' %}">{{user.get_full_name}}</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Login/Register</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+
+</nav>
+
+<!-- NavBar End -->

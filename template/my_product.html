@@ -1,0 +1,58 @@
+{% extends "cust_dashboard.html" %}
+{% load static %}
+{% block dashboard %}
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Image</th>
+                    <th>Product Name</th>
+                    <th>Product Category</th>
+                    <th>Seller Name</th>
+                    <th>Product Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in obj %}
+                <tr>
+                    <td>{{i.id}}</td>
+                    <td><img src="/media/{{i.product_image}}" alt="" height="75px" width="150px"></td>
+                    <td>{{i.product_name}}</td>
+                    <td>{{i.product_category}}</td>
+                    <td>{{i.seller_name.first_name}} {{i.seller_name.last_name}}</td>
+                    <td>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#m{{i.id}}">View</button>
+                        <a href="{% url 'edit_product' %}?pid={{i.id}}" class="btn btn-warning">Edit</a>
+                        <a href="{% url 'delete_product' %}?pid={{i.id}}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+                <!-- Modal -->
+                <div class="modal fade" id="m{{i.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5>Product Details</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="/media/{{i.product_image}}" alt="" width="100%" height="100%">
+                                <h5>{{i.product_name}}</h5>
+                                <p><del>&#8377;{{i.product_price}}</del> &#8377;{{i.sale_price}}</p>
+                                <p>{{i.details}}</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="{% url 'single_product' %}?pid={{i.id}}" class="btn btn-success">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,241 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+<style>
+    .m1 {
+        font-family: "Sofia", sans-serif;
+        font-size: 40px;
+        text-shadow: 3px 3px 1px whitesmoke;
+        color: black;
+    }
+
+    .m2 {
+        font-family: "Sofia", sans-serif;
+        font-size: 20px;
+        text-shadow: 3px 3px 1px whitesmoke;
+        color: black;
+    }
+
+    body {
+        overflow: hidden;
+    }
+</style>
+{% endblock %}
+
+{% block myblock %}
+<!-- Carousel Start -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 p-0">
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"></li>
+                    <li data-bs-target="#carouselExampleDark" data-bs-slide-to="1"></li>
+                    <li data-bs-target="#carouselExampleDark" data-bs-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <img src="{% static 'Images/cone.jpg' %}" class="d-block w-100" alt="..." height="500px">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="m1">First slide label</h5>
+                            <p class="m1">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="{% static 'Images/ctwo.jpg' %}" class="d-block w-100" alt="..." height="500px">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="m1">Second slide label</h5>
+                            <p class="m1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'Images/cthree.jpg' %}" class="d-block w-100" alt="..." height="500px">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="m1">Third slide label</h5>
+                            <p class="m1">Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Carousel End -->
+
+<!-- Start Second Slide -->
+<div class="container-fluid alert alert-secondary">
+    <div class="row">
+        <div class="col-md-1">
+            <img src="{% static 'Images/1.png' %}" alt="" width="100px">
+        </div>
+        <div class="col-md-6" style="text-align: justify;">
+            <h5>ZOMATO</h5>
+            <p>Zomato is an Indian restaurant aggregator and food delivery start-up founded by Deepinder Goyal and
+                Pankaj Chaddah in 2008. Zomato provides information, menus and user-reviews of restaurants as well as
+                food delivery options from partner restaurants in select cities.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{% static 'Images/lm.svg' %}" alt="">
+                    <small>Fresh Ingredient</small>
+                </div>
+                <div class="col-md-6">
+                    <img src="{% static 'Images/tray.svg' %}" alt="">
+                    <small>Expert Cooker</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <img src="{% static 'Images/img1.png' %}" alt="">
+        </div>
+        <div class="col-md-2">
+            <img src="{% static 'Images/img2.png' %}" alt="">
+        </div>
+        <div class="col-md-1 p-0">
+            <img src="{% static 'Images/3.png' %}" alt="" width="100px">
+        </div>
+    </div>
+</div>
+<!-- Second Slide End -->
+
+<!-- Start Third Slide -->
+
+<!-- End Third Slide -->
+
+<!-- Start Fourth Slide -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 p-0">
+            <h5 class="m2 text-center">Our Customer Say</h5>
+        </div>
+    </div>
+    <div class="row alert alert-danger">
+        <div class="col-md-4 text-center">
+            <p class="border rounded-pill p-5 border border-warning m-0">“Wow..What can I say for this restaurant. Awsum
+                in ambience,a nice theme like a jungle .. Food ma mamia.</p>
+            <img src="{% static 'Images/akshay.jpg'%}" alt="" class="w-25" style="border-radius: 50%;">
+        </div>
+        <div class="col-md-4 text-center">
+            <p class="border rounded-pill p-5 border border-warning m-0">“Wow..What can I say for this restaurant. Awsum
+                in ambience,a nice theme like a jungle .. Food ma mamia.</p>
+            <img src="{% static 'Images/amitabh.jpg'%}" alt="" class="w-25" style="border-radius: 50%;">
+        </div>
+        <div class="col-md-4 text-center">
+            <p class="border rounded-pill p-5 border border-warning m-0">“Wow..What can I say for this restaurant. Awsum
+                in ambience,a nice theme like a jungle .. Food ma mamia.</p>
+            <img src="{% static 'Images/shahrukh.jpg'%}" alt="" class="w-25" style="border-radius: 50%;">
+        </div>
+
+    </div>
+</div>
+<!-- End Fourth Slide -->
+
+<!-- Start Fifth Slide -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h5 class="m2 text-center">Photo Gallery</h5>
+        </div>
+        <div class="col-md-4 my-md-1">
+            <img src="{% static 'Images/g1.png'%}" alt="" width="100%" height="300px">
+        </div>
+        <div class="col-md-4 my-md-1">
+            <img src="{% static 'Images/g2.png'%}" alt="" width="100%" height="300px">
+        </div>
+        <div class="col-md-4 my-md-1">
+            <img src="{% static 'Images/g3.png'%}" alt="" width="100%" height="300px">
+        </div>
+        <div class="col-md-4 my-md-1">
+            <img src="{% static 'Images/g4.png'%}" alt="" width="100%" height="300px">
+        </div>
+        <div class="col-md-4 my-md-1">
+            <img src="{% static 'Images/g5.png'%}" alt="" width="100%" height="300px">
+        </div>
+        <div class="col-md-4 my-md-1">
+            <img src="{% static 'Images/g6.webp'%}" alt="" width="100%" height="300px">
+        </div>
+        <div class="col-md-4 my-md-1">
+            <img src="{% static 'Images/lunch3.jpg'%}" alt="" width="100%" height="300px">
+        </div>
+        <div class="col-md-4 my-md-1">
+            <img src="{% static 'Images/lunch4.jpg'%}" alt="" width="100%" height="300px">
+        </div>
+        <div class="col-md-4 my-md-1">
+            <img src="{% static 'Images/dinner2.jpg'%}" alt="" width="100%" height="300px">
+        </div>
+    </div>
+</div>
+<!-- End Fifth Slide -->
+{% endblock %}
+{% block myhome %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Button trigger modal -->
+            <!-- <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a> -->
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Login Here...</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                                onclick="back()"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1"><img
+                                                    src="{% static 'Images/account.png'%}" alt=""></span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Username ..." name="uname"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1"><img
+                                                    src="{% static 'Images/lock.png' %}" alt=""></span>
+                                        </div>
+                                        <input type="password" class="form-control" placeholder="Password ..."
+                                            name="pwd" required>
+                                    </div>
+                                </div>
+                                <a href="{% url 'forgot_password' %}" style="text-decoration: none;">Forgot Password</a>
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" class="btn btn-outline-success" value="Sign In">
+                        </form>
+                            <button type="button" class="btn btn-outline-success"><a href="{% url 'register' %}"
+                                    style="text-decoration: none; color: black;">Register</a></button>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {
+        keyboard: false
+    })
+    myModal.show()
+
+    function back() {
+        window.location = "/"
+    }
+
+
+</script>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'cust_dashboard.html' %}
+{% load static %}
+
+{% block dashboard %}
+<div class="row">
+    <div class="col-md-6">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="text-center modal-title"><img src="/media/{{register_data.profile_pic}}" alt="" height="50" style="border-radius: 50%;"></span>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                            onclick="back()"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered">
+                                <tbody>
+                                    <tr>
+                                        <th>ID</th>
+                                        <td>{{user.id}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Username</th>
+                                        <td>{{user.username}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Full Name</th>
+                                        <td>{{user.get_full_name}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email</th>
+                                        <td>{{user.email}}</td>
+                                    </tr>
+                                    {% for i in all_data %}
+                                    <tr>
+                                        <th>Contact</th>
+                                        <td>{{i.contact_number}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Gender</th>
+                                        <td>{{i.gender}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Address</th>
+                                        <td>{{i.address}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                    <tr>
+                                        <th>Join Date</th>
+                                        <td>{{user.date_joined}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Last Login</th>
+                                        <td>{{user.last_login}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<script>
+    var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {
+        keyboard: false
+    })
+    myModal.show()
+
+    function back() {
+        window.location = "/cust_dashboard"
+    }
+</script>
+
+{% endblock %}

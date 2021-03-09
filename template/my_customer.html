@@ -1,0 +1,39 @@
+{% extends 'cust_dashboard.html' %}
+{% load static %}
+{% block head %}
+<style>
+    .m{
+        line-height: 10px;
+    }
+    .h{
+        box-shadow: 0px 0px 10px gray;
+    }
+    .h:hover{
+        padding: 5px;
+    }
+</style>
+{% endblock %}
+{% block dashboard %}
+<div class="row">
+    {% for i in customer %}
+    <div class="col-md-3 my-2">
+        <div class="card h">
+            <div class="card-header text-center">
+                {% if register_data.profile_pic %}
+                <img src="/media/{{i.profile_pic}}" alt="" height="100" style="border-radius: 50%;" width="100px">
+                {% else %}
+                <img src="{% static 'Images/user.jpg' %}" alt="" height="100" style="border-radius: 50%;">
+                {% endif %}
+            </div>
+            <div class="card-body m">
+                <h4>{{i.username}}</h4>
+                <p>{{i.first_name}} {{i.last_name}}</p>
+                <p><em>{{i.email}}</em></p>
+                <p><em>{{i.contact_number}}</em></p>
+                <p><em>{{i.join_date}}</em></p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
